@@ -16,5 +16,14 @@
   "bugs": {
     "url": "https://github.com/brian-agent/dashboard/issues"
   },
-  "homepage": "https://github.com/brian-agent/dashboard#readme"
+  "homepage": "https://github.com/brian-agent/dashboard#readme",
+  "dependencies": {
+    "axios": "^1.13.3",
+    "bootstrap": "^5.3.8",
+    "lucide-react": "^0.563.0",
+    "react": "^19.2.4",
+    "react-bootstrap": "^2.10.10",
+    "react-dom": "^19.2.4",
+    "recharts": "^3.7.0"
+  }
 }
