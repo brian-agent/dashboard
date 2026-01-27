@@ -1,0 +1,60 @@
+.header-section {
+  background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%);
+  color: white;
+  padding: 2rem 0;
+  margin-bottom: 2rem;
+  border-bottom: 3px solid #1e40af;
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1.5rem;
+}
+
+.business-info h1 {
+  font-size: 2.25rem;
+  font-weight: 700;
+  margin: 0;
+  margin-bottom: 0.25rem;
+}
+
+.business-name {
+  color: white;
+  letter-spacing: -0.5px;
+}
+
+.current-month {
+  color: rgba(255, 255, 255, 0.8);
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+.refresh-info {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.85rem;
+}
+
+.stat-cards-row {
+  margin-top: 1.5rem !important;
+}
+
+@media (max-width: 768px) {
+  .header-section {
+    padding: 1.5rem 0;
+    margin-bottom: 1.5rem;
+  }
+
+  .business-name {
+    font-size: 1.5rem;
+  }
+
+  .header-content {
+    flex-direction: column;
+  }
+
+  .stat-cards-row {
+    margin-top: 1rem !important;
+  }
+}

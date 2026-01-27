@@ -1,0 +1,195 @@
+.review-tracker-section {
+  margin-bottom: 2rem;
+}
+
+.review-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.review-stat-card {
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+.review-stat-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+}
+
+.review-stat-card .card-body {
+  padding: 1.5rem;
+}
+
+.stat-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.stat-icon {
+  flex-shrink: 0;
+}
+
+.stat-title {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #6b7280;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.stat-large {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #1f2937;
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+
+.stat-detail {
+  font-size: 0.875rem;
+  color: #9ca3af;
+  margin: 0;
+}
+
+.goal-progress {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.progress-bar-wrapper {
+  width: 100%;
+  height: 12px;
+  background: #e5e7eb;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #10b981, #059669);
+  border-radius: 6px;
+  transition: width 0.4s ease;
+}
+
+.goal-text {
+  font-size: 0.9rem;
+  color: #1f2937;
+}
+
+.goal-text strong {
+  color: #10b981;
+  font-weight: 700;
+}
+
+.review-insights-card {
+  border: 1px solid #e5e7eb;
+  border-left: 4px solid #fbbf24;
+  border-radius: 8px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.review-insights-card .card-body {
+  padding: 1.5rem;
+}
+
+.strategy-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+  padding: 1.5rem 0;
+  border-top: 1px solid #e5e7eb;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.strategy-item {
+  display: flex;
+  gap: 1rem;
+}
+
+.strategy-step {
+  width: 40px;
+  height: 40px;
+  min-width: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fef3c7;
+  color: #78350f;
+  border-radius: 50%;
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.strategy-info {
+  flex: 1;
+}
+
+.strategy-title {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #1f2937;
+  margin: 0 0 0.5rem 0;
+}
+
+.strategy-detail {
+  font-size: 0.85rem;
+  color: #6b7280;
+  margin: 0;
+}
+
+.goal-impact {
+  margin-top: 1rem;
+}
+
+.impact-title {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #1f2937;
+  margin: 0 0 1rem 0;
+  padding-top: 1rem;
+  border-top: 1px solid #e5e7eb;
+}
+
+.impact-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.impact-list li {
+  font-size: 0.9rem;
+  color: #374151;
+  padding: 0.5rem 0;
+}
+
+.impact-stat {
+  font-weight: 700;
+  color: #10b981;
+}
+
+@media (max-width: 768px) {
+  .review-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .strategy-content {
+    grid-template-columns: 1fr;
+  }
+
+  .stat-large {
+    font-size: 2rem;
+  }
+}

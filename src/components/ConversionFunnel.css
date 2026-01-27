@@ -1,0 +1,248 @@
+.conversion-funnel-section {
+  margin-bottom: 2rem;
+}
+
+.funnel-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.funnel-card {
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  grid-column: 1 / -1;
+}
+
+.funnel-card .card-body {
+  padding: 2rem;
+}
+
+.funnel-chart {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.funnel-stage {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.stage-bar {
+  padding: 1.25rem;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: white;
+  transition: all 0.3s ease;
+  min-height: 60px;
+}
+
+.stage-bar:hover {
+  filter: brightness(0.9);
+  transform: translateX(4px);
+}
+
+.stage-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  gap: 1rem;
+}
+
+.stage-name {
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.stage-count {
+  font-weight: 700;
+  font-size: 1.25rem;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+}
+
+.funnel-drop {
+  text-align: center;
+  font-size: 0.8rem;
+  color: #9ca3af;
+  font-weight: 500;
+  margin: 0.5rem 0;
+}
+
+.funnel-metrics-card {
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.funnel-metrics-card .card-body {
+  padding: 1.5rem;
+}
+
+.metrics-breakdown {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.breakdown-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background: #f9fafb;
+  border-radius: 6px;
+  border: 1px solid #e5e7eb;
+  transition: all 0.3s ease;
+}
+
+.breakdown-item:hover {
+  background: #f3f4f6;
+  border-color: #d1d5db;
+}
+
+.item-left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex: 1;
+}
+
+.color-dot {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.item-stage {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #1f2937;
+  margin-bottom: 0.25rem;
+}
+
+.item-metric {
+  display: block;
+  font-size: 0.8rem;
+  color: #9ca3af;
+}
+
+.item-percent {
+  font-weight: 700;
+  color: #1e3a8a;
+  font-size: 1.1rem;
+}
+
+.funnel-insights-card {
+  border: 1px solid #e5e7eb;
+  border-left: 4px solid #2563eb;
+  border-radius: 8px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.funnel-insights-card .card-body {
+  padding: 1.5rem;
+}
+
+.analysis-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.5rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.analysis-list li {
+  padding: 0.75rem 0;
+  font-size: 0.9rem;
+  color: #374151;
+  border-bottom: 1px solid #e5e7eb;
+  padding-bottom: 0.75rem;
+}
+
+.analysis-list li:last-child {
+  border-bottom: none;
+}
+
+.analysis-list strong {
+  color: #1f2937;
+  font-weight: 600;
+}
+
+.optimization-box {
+  margin-top: 1.5rem;
+  padding: 1rem;
+  background: #eff6ff;
+  border-left: 4px solid #2563eb;
+  border-radius: 6px;
+}
+
+.optimization-title {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #1e3a8a;
+  margin: 0 0 1rem 0;
+}
+
+.optimization-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.optimization-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  font-size: 0.9rem;
+  color: #374151;
+}
+
+.opp-num {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  min-width: 24px;
+  background: #2563eb;
+  color: white;
+  border-radius: 50%;
+  font-weight: 700;
+  font-size: 0.8rem;
+}
+
+@media (max-width: 1024px) {
+  .funnel-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .stage-content {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .stage-bar {
+    min-height: auto;
+  }
+
+  .stage-count {
+    align-self: flex-end;
+  }
+}

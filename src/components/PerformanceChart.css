@@ -1,0 +1,143 @@
+.performance-section {
+  margin-bottom: 2rem;
+}
+
+.section-subtitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 1.5rem;
+}
+
+.charts-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.chart-card {
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  transition: box-shadow 0.3s ease;
+}
+
+.chart-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.chart-card .card-body {
+  padding: 1.5rem;
+}
+
+.chart-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #1f2937;
+  margin: 0 0 1rem 0;
+}
+
+.chart-insight {
+  font-size: 0.875rem;
+  color: #6b7280;
+  margin: 1rem 0 0 0;
+  padding: 0.75rem;
+  background: #f3f4f6;
+  border-radius: 6px;
+  text-align: center;
+}
+
+.comparison-card {
+  border: 1px solid #e5e7eb;
+  border-left: 4px solid #1e3a8a;
+  border-radius: 8px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.comparison-card .card-body {
+  padding: 1.5rem;
+}
+
+.comparison-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.comparison-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.comparison-item.highlight {
+  padding: 1rem;
+  background: #eff6ff;
+  border-radius: 8px;
+  border: 2px solid #1e3a8a;
+}
+
+.comparison-label {
+  font-size: 0.75rem;
+  color: #9ca3af;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.comparison-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1f2937;
+}
+
+.comparison-item.highlight .comparison-value {
+  color: #1e3a8a;
+}
+
+.comparison-arrow {
+  font-size: 1.5rem;
+  color: #d1d5db;
+  font-weight: 700;
+}
+
+.comparison-change {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.change-badge {
+  padding: 0.5rem 1rem;
+  background: #d1fae5;
+  color: #065f46;
+  border-radius: 20px;
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+@media (max-width: 768px) {
+  .charts-container {
+    grid-template-columns: 1fr;
+  }
+
+  .section-subtitle {
+    font-size: 1.25rem;
+  }
+
+  .comparison-content {
+    gap: 1rem;
+  }
+
+  .comparison-arrow {
+    display: none;
+  }
+
+  .comparison-item {
+    flex: 1;
+  }
+}

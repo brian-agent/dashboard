@@ -1,0 +1,14 @@
+.app {
+  min-height: 100vh;
+  background: #f3f4f6;
+}
+
+button {
+  font-family: inherit;
+}
+
+input,
+select,
+textarea {
+  font-family: inherit;
+}
