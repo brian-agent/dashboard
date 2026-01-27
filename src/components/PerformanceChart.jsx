@@ -13,7 +13,7 @@ import {
 import { BarChart, Bar } from 'recharts';
 import './PerformanceChart.css';
 
-const PerformanceChart = ({ data, monthlyComparison }) => {
+const PerformanceChart = ({ data = [], monthlyComparison = {} }) => {
   return (
     <div className="performance-section">
       <Container fluid>
@@ -113,16 +113,16 @@ const PerformanceChart = ({ data, monthlyComparison }) => {
             <div className="comparison-content">
               <div className="comparison-item">
                 <span className="comparison-label">Last Month</span>
-                <span className="comparison-value">{monthlyComparison.lastMonth} leads</span>
+                <span className="comparison-value">{monthlyComparison?.lastMonth || 0} leads</span>
               </div>
               <div className="comparison-arrow">→</div>
               <div className="comparison-item highlight">
                 <span className="comparison-label">This Month</span>
-                <span className="comparison-value">{monthlyComparison.thisMonth} leads</span>
+                <span className="comparison-value">{monthlyComparison?.thisMonth || 0} leads</span>
               </div>
               <div className="comparison-change">
                 <span className="change-badge">
-                  +{monthlyComparison.change.toFixed(1)}%
+                  +{monthlyComparison?.change?.toFixed(1) || '0'}%
                 </span>
               </div>
             </div>

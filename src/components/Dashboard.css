@@ -8,6 +8,10 @@
   padding: 2rem 1rem;
 }
 
+.demo-mode-section {
+  margin-bottom: 1.5rem;
+}
+
 .controls-bar {
   display: flex;
   justify-content: space-between;

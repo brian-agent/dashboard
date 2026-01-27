@@ -1,0 +1,248 @@
+.demo-toggle-container {
+  position: relative;
+  margin-bottom: 2rem;
+}
+
+.demo-toggle-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1.5rem;
+  background: white;
+  border: 2px solid #e5e7eb;
+  border-radius: 8px;
+  font-weight: 600;
+  color: #1f2937;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 0.95rem;
+}
+
+.demo-toggle-btn:hover {
+  border-color: #1e3a8a;
+  color: #1e3a8a;
+}
+
+.toggle-arrow {
+  margin-left: auto;
+  font-size: 0.75rem;
+}
+
+.demo-expanded {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: white;
+  border: 2px solid #1e3a8a;
+  border-top: none;
+  border-radius: 0 0 8px 8px;
+  padding: 2rem;
+  margin-top: -2px;
+  box-shadow: 0 12px 32px rgba(30, 58, 138, 0.15);
+  z-index: 1000;
+}
+
+.demo-intro {
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.demo-intro h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin: 0 0 0.5rem 0;
+}
+
+.demo-intro p {
+  font-size: 0.9rem;
+  color: #6b7280;
+  margin: 0;
+}
+
+.profile-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.profile-card {
+  padding: 1.5rem;
+  border: 2px solid #e5e7eb;
+  border-left: 4px solid;
+  border-radius: 10px;
+  background: #fafbfc;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  position: relative;
+}
+
+.profile-card:hover {
+  border-color: #1e3a8a;
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+.profile-card.active {
+  background: linear-gradient(135deg, #ecf0ff 0%, #f3f4f6 100%);
+  border-color: #1e3a8a;
+  box-shadow: 0 8px 24px rgba(30, 58, 138, 0.2);
+}
+
+.profile-card.active::after {
+  content: '✓';
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  width: 24px;
+  height: 24px;
+  background: #1e3a8a;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+.profile-header {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.profile-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.profile-name {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin: 0 0 0.5rem 0;
+  text-align: center;
+}
+
+.profile-description {
+  font-size: 0.85rem;
+  color: #6b7280;
+  margin: 0 0 1rem 0;
+  text-align: center;
+}
+
+.profile-metrics {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.metric-mini {
+  background: white;
+  padding: 0.5rem;
+  border-radius: 6px;
+  text-align: center;
+  border: 1px solid #e5e7eb;
+}
+
+.metric-label {
+  display: block;
+  font-size: 0.7rem;
+  color: #9ca3af;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.2px;
+  margin-bottom: 0.25rem;
+}
+
+.metric-value {
+  display: block;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #1f2937;
+}
+
+.btn-select {
+  width: 100%;
+  padding: 0.6rem;
+  border: 2px solid #e5e7eb;
+  background: white;
+  color: #1f2937;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 0.85rem;
+}
+
+.btn-select:hover {
+  border-color: #1e3a8a;
+  color: #1e3a8a;
+}
+
+.btn-select.selected {
+  background: #1e3a8a;
+  color: white;
+  border-color: #1e3a8a;
+}
+
+.demo-info {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #e5e7eb;
+}
+
+.info-box {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem;
+  background: #f9fafb;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  color: #6b7280;
+}
+
+.info-box svg {
+  flex-shrink: 0;
+}
+
+@media (max-width: 1024px) {
+  .profile-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .demo-expanded {
+    padding: 1.5rem;
+  }
+
+  .profile-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .demo-info {
+    grid-template-columns: 1fr;
+  }
+
+  .profile-metrics {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+
+  .metric-mini {
+    padding: 0.75rem;
+  }
+}

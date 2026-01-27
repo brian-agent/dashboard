@@ -3,7 +3,13 @@ import { Card, Container, Badge } from 'react-bootstrap';
 import { TrendingUp, Lock } from 'lucide-react';
 import './TierIndicator.css';
 
-const TierIndicator = ({ tierData }) => {
+const TierIndicator = ({ tierData = {} }) => {
+  const safeData = {
+    currentTier: tierData.currentTier || 'Basic',
+    monthlyPrice: tierData.monthlyPrice || 0,
+    features: tierData.features || [],
+    availableUpgrades: tierData.availableUpgrades || []
+  };
   return (
     <div className="tier-section">
       <Container fluid>
@@ -13,7 +19,7 @@ const TierIndicator = ({ tierData }) => {
               <div className="tier-info">
                 <div className="tier-badge">
                   <Lock size={24} />
-                  <span>{tierData.currentTier}</span>
+                  <span>{safeData.currentTier}</span>
                 </div>
 
                 <div className="tier-details">
@@ -29,7 +35,7 @@ const TierIndicator = ({ tierData }) => {
                   <div className="features-list">
                     <h6 className="features-title">Active Features</h6>
                     <ul className="features">
-                      {tierData.features.map((feature, idx) => (
+                      {safeData.features.map((feature, idx) => (
                         <li key={idx}>
                           <span className="check">✓</span>
                           <span>{feature}</span>
@@ -43,14 +49,14 @@ const TierIndicator = ({ tierData }) => {
               <div className="tier-pricing">
                 <div className="price-box">
                   <span className="price-label">Monthly</span>
-                  <span className="price-amount">${tierData.monthlyPrice}</span>
+                  <span className="price-amount">${safeData.monthlyPrice}</span>
                   <span className="price-unit">/month</span>
                 </div>
 
-                {tierData.availableUpgrades && tierData.availableUpgrades.length > 0 && (
+                {safeData.availableUpgrades && safeData.availableUpgrades.length > 0 && (
                   <div className="upgrade-section">
                     <h6 className="upgrade-title">Upgrade Available</h6>
-                    {tierData.availableUpgrades.map((upgrade, idx) => (
+                    {safeData.availableUpgrades.map((upgrade, idx) => (
                       <div key={idx} className="upgrade-option">
                         <div className="upgrade-header">
                           <span className="upgrade-name">{upgrade.tier}</span>

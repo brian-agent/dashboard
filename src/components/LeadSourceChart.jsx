@@ -10,7 +10,7 @@ import {
 } from 'recharts';
 import './LeadSourceChart.css';
 
-const LeadSourceChart = ({ sources }) => {
+const LeadSourceChart = ({ sources = [] }) => {
   const COLORS = ['#1e3a8a', '#2563eb', '#3b82f6', '#60a5fa', '#93c5fd', '#dbeafe'];
 
   return (

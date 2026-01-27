@@ -42,7 +42,7 @@ const Header = ({ businessName, currentMonth, stats }) => {
           </Col>
           <Col xs={12} sm={6} lg={3}>
             <StatCard 
-              title="Capture Rate"
+              title="Pickup Rate"
               value={stats.captureRate}
               unit="%"
             />

@@ -3,6 +3,8 @@ import { Container, Row, Col, Button, Dropdown } from 'react-bootstrap';
 import { Download, RotateCcw } from 'lucide-react';
 import mockData from '../data/mockData';
 import Header from './Header';
+import ClientDataForm from './ClientDataForm';
+import DemoModeToggle from './DemoModeToggle';
 import LeakAnalysis from './LeakAnalysis';
 import PerformanceChart from './PerformanceChart';
 import LeadSourceChart from './LeadSourceChart';
@@ -12,10 +14,25 @@ import ConversionFunnel from './ConversionFunnel';
 import WeeklySummary from './WeeklySummary';
 import ActionItems from './ActionItems';
 import TierIndicator from './TierIndicator';
+import RevenueProtectionScore from './RevenueProtectionScore';
+import RecommendedActions from './RecommendedActions';
+import ProjectionView from './ProjectionView';
+import WhatIfCalculator from './WhatIfCalculator';
+import JobBoard from './JobBoard';
+import SettingsPanel from './SettingsPanel';
 import './Dashboard.css';
 
 const Dashboard = () => {
   const [dateRange, setDateRange] = useState('30');
+  // clientData holds real client data when loaded; falls back to mockData
+  const [clientData, setClientData] = useState(() => {
+    try {
+      const saved = localStorage.getItem('clientData');
+      return saved ? JSON.parse(saved) : mockData;
+    } catch (e) {
+      return mockData;
+    }
+  });
 
   const handleRefresh = () => {
     // Simulate refresh
@@ -27,15 +44,37 @@ const Dashboard = () => {
     alert('Exporting dashboard data to CSV...');
   };
 
+  const handleLoadClientData = (data) => {
+    // Basic validation: must be an object
+    if (data && typeof data === 'object') {
+      setClientData(data);
+      try { localStorage.setItem('clientData', JSON.stringify(data)); } catch (e) {}
+      alert('Client data loaded');
+    } else {
+      alert('Invalid data');
+    }
+  };
+
   return (
     <div className="dashboard-container">
       <Header
-        businessName={mockData.businessName}
-        currentMonth={mockData.currentMonth}
-        stats={mockData.headerStats}
+        businessName={clientData.businessName}
+        currentMonth={clientData.currentMonth}
+        stats={clientData.headerStats}
       />
 
       <Container fluid className="dashboard-content">
+        {/* Client Data Loader */}
+        <ClientDataForm onLoad={handleLoadClientData} />
+
+        {/* Demo Mode Toggle */}
+        <div className="demo-mode-section">
+          <DemoModeToggle onModeChange={(profile) => {
+            // Mode change handler would update dashboard state
+            console.log('Profile selected:', profile);
+          }} />
+        </div>
+
         {/* Controls Bar */}
         <div className="controls-bar">
           <div className="controls-left">
@@ -72,28 +111,50 @@ const Dashboard = () => {
 
         {/* Main Dashboard Sections */}
         <LeakAnalysis
-          leakItems={mockData.revenueLeak}
-          totalRevenue={mockData.totalRevenueLeak}
+          leakItems={clientData.revenueLeak}
+          totalRevenue={clientData.totalRevenueLeak}
         />
+
+        {/* Revenue Protection Score */}
+        <RevenueProtectionScore leakData={clientData.revenueLeak} />
+
+        {/* Recommended Actions */}
+        <RecommendedActions leakData={clientData.revenueLeak} />
+
+        {/* Projection View - Show impact if actions taken */}
+        <ProjectionView clientData={clientData} />
 
         <PerformanceChart
-          data={mockData.monthlyPerformance}
-          monthlyComparison={mockData.monthlyComparison}
+          data={clientData.monthlyPerformance}
+          monthlyComparison={clientData.monthlyComparison}
         />
 
-        <LeadSourceChart sources={mockData.leadSources} />
+        <LeadSourceChart sources={clientData.leadSources} />
 
-        <ResponseTimeMetrics responseTimeData={mockData.responseTime} />
+        <ResponseTimeMetrics responseTimeData={clientData.responseTime} />
 
-        <ReviewTracker reviewData={mockData.reviews} />
+        <ReviewTracker reviewData={clientData.reviews} />
 
-        <ConversionFunnel funnelData={mockData.conversionFunnel} />
+        <ConversionFunnel funnelData={clientData.conversionFunnel} />
 
-        <WeeklySummary summaryCards={mockData.weeklySummary} />
+        <WeeklySummary summaryCards={clientData.weeklySummary} />
 
-        <ActionItems alerts={mockData.actionItems} />
+        <ActionItems alerts={clientData.actionItems} />
 
-        <TierIndicator tierData={mockData.tierStatus} />
+        <TierIndicator tierData={clientData.tierStatus} />
+
+        {/* What-If Calculator */}
+        <WhatIfCalculator currentMetrics={{
+          avgResponseTime: clientData.responseTime?.phoneCalls?.average ?? 0,
+          reviewCount: clientData.reviews?.current ?? 0,
+          websiteConversion: clientData.leadSources && clientData.leadSources.length ? (clientData.leadSources[0].conversion || 0) / 100 : 0.08
+        }} />
+
+        {/* Job Board */}
+        <JobBoard />
+
+        {/* Settings Panel */}
+        <SettingsPanel />
 
         {/* Footer */}
         <div className="dashboard-footer">

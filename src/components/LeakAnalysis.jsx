@@ -4,7 +4,7 @@ import { AlertCircle, TrendingUp, TrendingDown, Minus } from 'lucide-react';
 import { formatCurrency, formatPercent, getStatusColor, getTrendColor } from '../utils/calculations';
 import './LeakAnalysis.css';
 
-const LeakAnalysis = ({ leakItems, totalRevenue }) => {
+const LeakAnalysis = ({ leakItems = [], totalRevenue = 0, isDashboard = false }) => {
   const [selectedLeak, setSelectedLeak] = useState(null);
 
   const getTrendArrow = (trend, trendPercent) => {
@@ -42,10 +42,10 @@ const LeakAnalysis = ({ leakItems, totalRevenue }) => {
         <div className="section-header">
           <h2 className="section-title">
             <AlertCircle size={28} className="section-icon" />
-            Revenue Leak Analysis
+            Where We're Losing Money
           </h2>
           <div className="total-leak">
-            <span className="leak-label">Total Monthly Leak:</span>
+            <span className="leak-label">Extra Money We Could Make This Month:</span>
             <span className="leak-amount">{formatCurrency(totalRevenue)}</span>
           </div>
         </div>
@@ -75,15 +75,15 @@ const LeakAnalysis = ({ leakItems, totalRevenue }) => {
 
                 <div className="leak-metrics">
                   <div className="metric">
-                    <span className="metric-label">Lost Opportunities</span>
+                    <span className="metric-label">Missed Jobs</span>
                     <span className="metric-value">{leak.lostOpportunities}</span>
                   </div>
                   <div className="metric">
-                    <span className="metric-label">Est. Revenue Impact</span>
+                    <span className="metric-label">Extra Money We Could Make</span>
                     <span className="metric-value revenue">{formatCurrency(leak.estimatedRevenue)}</span>
                   </div>
                   <div className="metric">
-                    <span className="metric-label">% of Total Leaks</span>
+                    <span className="metric-label">% of Total Lost Money</span>
                     <span className="metric-value">{formatPercent(leak.percentage)}</span>
                   </div>
                 </div>
@@ -92,7 +92,7 @@ const LeakAnalysis = ({ leakItems, totalRevenue }) => {
                   <div className="leak-details">
                     <p className="leak-description">{leak.description}</p>
                     <div className="action-button">
-                      <button className="btn-action">See Detailed Breakdown</button>
+                      <button className="btn-action">How to Fix This →</button>
                     </div>
                   </div>
                 )}
@@ -107,8 +107,8 @@ const LeakAnalysis = ({ leakItems, totalRevenue }) => {
               <h6 className="summary-title">Key Insights</h6>
               <ul className="insights-list">
                 <li>
-                  <strong>Biggest Leak:</strong> Missed calls during jobs (
-                  {formatCurrency(leakItems.find(l => l.id === 'missed-calls').estimatedRevenue)}/month)
+                  <strong>Biggest Leak:</strong> {leakItems && leakItems.length > 0 ? leakItems.reduce((max, l) => (l.estimatedRevenue > max.estimatedRevenue ? l : max)).name : 'N/A'} (
+                  {leakItems && leakItems.length > 0 ? formatCurrency(leakItems.reduce((max, l) => (l.estimatedRevenue > max.estimatedRevenue ? l : max)).estimatedRevenue) : '$0'}/month)
                 </li>
                 <li>
                   <strong>Most Improved:</strong> Review gap impact (↓4.5% this month)

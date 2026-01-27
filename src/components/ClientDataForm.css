@@ -1,0 +1,195 @@
+.client-data-form {
+  margin-bottom: 24px;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.client-data-form h5 {
+  font-weight: 600;
+  color: #1f2937;
+  margin-bottom: 16px;
+}
+
+.muted {
+  color: #6b7280;
+  font-size: 0.9rem;
+}
+
+.form-section-title {
+  font-weight: 600;
+  color: #374151;
+  font-size: 0.95rem;
+  margin-top: 20px;
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.smart-form-content,
+.json-form-content {
+  padding: 16px 0;
+}
+
+.form-actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.form-actions .btn {
+  min-width: 120px;
+}
+
+.text-danger {
+  color: #ef4444;
+  font-size: 0.9rem;
+  margin-top: 8px;
+}
+
+.nav-tabs {
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.nav-tabs .nav-link {
+  color: #6b7280;
+  border: none;
+  border-bottom: 3px solid transparent;
+  font-weight: 500;
+}
+
+.nav-tabs .nav-link.active {
+  color: #1e3a8a;
+  border-bottom: 3px solid #1e3a8a;
+  background: transparent;
+}
+
+.form-control {
+  border: 1px solid #d1d5db;
+  font-size: 0.95rem;
+}
+
+.form-control:focus {
+  border-color: #1e3a8a;
+  box-shadow: 0 0 0 3px rgba(30, 58, 138, 0.1);
+}
+
+.form-label {
+  font-weight: 500;
+  color: #374151;
+  margin-bottom: 6px;
+  font-size: 0.9rem;
+}
+
+.text-muted {
+  display: block;
+  margin-top: 4px;
+  color: #9ca3af;
+  font-size: 0.85rem;
+}
+
+/* Range slider styling */
+.form-range {
+  height: 6px;
+  border-radius: 3px;
+}
+
+.form-range::-webkit-slider-thumb {
+  background: #1e3a8a;
+  border: 2px solid white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.form-range::-moz-range-thumb {
+  background: #1e3a8a;
+  border: 2px solid white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Money Lost Summary */
+.money-lost-summary {
+  background: linear-gradient(135deg, #fef2f2 0%, #fee2e2 100%);
+  border: 2px solid #fecaca;
+  border-radius: 8px;
+  padding: 16px;
+  margin-top: 24px;
+  margin-bottom: 16px;
+}
+
+.money-lost-summary h6 {
+  color: #991b1b;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.loss-items {
+  gap: 12px;
+}
+
+.loss-item {
+  background: white;
+  padding: 12px;
+  border-radius: 6px;
+  border-left: 4px solid #ef4444;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.loss-item.total {
+  border-left-color: #991b1b;
+  background: #fff5f5;
+}
+
+.loss-label {
+  color: #6b7280;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.loss-value {
+  color: #ef4444;
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.loss-item.total .loss-value {
+  color: #991b1b;
+  font-size: 1.25rem;
+}
+
+/* Website Toggle */
+.website-toggle {
+  display: flex;
+  gap: 24px;
+  margin-top: 8px;
+  padding: 12px;
+  background: #f9fafb;
+  border-radius: 6px;
+}
+
+.website-toggle .form-check {
+  margin-bottom: 0;
+}
+
+.website-toggle .form-check-input {
+  cursor: pointer;
+  border: 2px solid #d1d5db;
+}
+
+.website-toggle .form-check-input:checked {
+  background-color: #10b981;
+  border-color: #10b981;
+}
+
+.alert {
+  margin: 0;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 0.9rem;
+}
+
+.alert-info {
+  background: #dbeafe;
+  border: 1px solid #bfdbfe;
+  color: #1e40af;
+}

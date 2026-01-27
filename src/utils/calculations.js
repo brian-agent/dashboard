@@ -10,7 +10,9 @@ export const formatCurrency = (value) => {
 };
 
 export const formatPercent = (value, decimals = 1) => {
-  return `${value.toFixed(decimals)}%`;
+  const num = typeof value === 'string' ? parseFloat(value) : value;
+  if (isNaN(num)) return '0%';
+  return `${num.toFixed(decimals)}%`;
 };
 
 export const calculateRevenueImpact = (opportunities, closeRate, avgJobValue) => {

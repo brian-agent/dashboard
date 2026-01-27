@@ -4,7 +4,7 @@ import { Clock, MessageSquare, Mail, Moon } from 'lucide-react';
 import { formatTime, getResponseTimeColor, getResponseTimeStatus } from '../utils/calculations';
 import './ResponseTimeMetrics.css';
 
-const ResponseTimeMetrics = ({ responseTimeData }) => {
+const ResponseTimeMetrics = ({ responseTimeData = {} }) => {
   const getStatusLabel = (status) => {
     const labels = {
       good: 'Excellent',
@@ -44,7 +44,7 @@ const ResponseTimeMetrics = ({ responseTimeData }) => {
   return (
     <div className="response-time-section">
       <Container fluid>
-        <h3 className="section-subtitle">Response Time Analysis</h3>
+        <h3 className="section-subtitle">How Fast We Pick Up</h3>
 
         <div className="metrics-grid">
           {metrics.map((metric, idx) => {

@@ -4,7 +4,7 @@ import { TrendingUp, TrendingDown } from 'lucide-react';
 import { formatCurrency } from '../utils/calculations';
 import './WeeklySummary.css';
 
-const WeeklySummary = ({ summaryCards }) => {
+const WeeklySummary = ({ summaryCards = [] }) => {
   const getIcon = (iconName) => {
     const icons = {
       Phone: '☎️',
@@ -18,7 +18,7 @@ const WeeklySummary = ({ summaryCards }) => {
   return (
     <div className="weekly-summary-section">
       <Container fluid>
-        <h3 className="section-subtitle">Week-Over-Week Summary</h3>
+        <h3 className="section-subtitle">This Week vs Last Week</h3>
 
         <div className="summary-cards-grid">
           {summaryCards.map((card, idx) => {

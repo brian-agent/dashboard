@@ -4,13 +4,13 @@ import { Star, Send, MessageCircle } from 'lucide-react';
 import { formatPercent } from '../utils/calculations';
 import './ReviewTracker.css';
 
-const ReviewTracker = ({ reviewData }) => {
+const ReviewTracker = ({ reviewData = {} }) => {
   const progressPercent = (reviewData.current / reviewData.monthlyGoal) * 100;
 
   return (
     <div className="review-tracker-section">
       <Container fluid>
-        <h3 className="section-subtitle">Review Generation Tracker</h3>
+        <h3 className="section-subtitle">Google Reviews (Customer Trust)</h3>
 
         <div className="review-grid">
           <Card className="review-stat-card">
@@ -34,7 +34,7 @@ const ReviewTracker = ({ reviewData }) => {
                 <div className="stat-icon" style={{ color: '#3b82f6' }}>
                   <Send size={24} />
                 </div>
-                <h6 className="stat-title">Requests Sent</h6>
+                <h6 className="stat-title">Asked to Leave Reviews</h6>
               </div>
               <div className="stat-large">{reviewData.requestsSent}</div>
               <p className="stat-detail">
@@ -68,7 +68,7 @@ const ReviewTracker = ({ reviewData }) => {
 
         <Card className="review-insights-card">
           <Card.Body>
-            <h6 className="chart-title">Review Strategy</h6>
+            <h6 className="chart-title">How to Get More Reviews</h6>
             <div className="strategy-content">
               <div className="strategy-item">
                 <div className="strategy-step">1</div>

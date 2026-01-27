@@ -3,7 +3,7 @@ import { Card, Container } from 'react-bootstrap';
 import { AlertCircle, AlertTriangle, Info, CheckCircle2 } from 'lucide-react';
 import './ActionItems.css';
 
-const ActionItems = ({ alerts }) => {
+const ActionItems = ({ alerts = [] }) => {
   const getSeverityIcon = (severity) => {
     const icons = {
       critical: <AlertCircle size={24} color="#ef4444" />,
@@ -34,7 +34,7 @@ const ActionItems = ({ alerts }) => {
   return (
     <div className="action-items-section">
       <Container fluid>
-        <h3 className="section-subtitle">Alerts & Action Items</h3>
+        <h3 className="section-subtitle">What You Should Do Right Now</h3>
 
         <div className="alerts-grid">
           {alerts.map((alert) => (

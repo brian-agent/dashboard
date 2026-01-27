@@ -158,21 +158,21 @@ export const mockData = {
       icon: "Phone"
     },
     {
-      label: "Leads Captured",
+      label: "Customers We Reached",
       thisWeek: 29,
       lastWeek: 24,
       change: 20.8,
       icon: "TrendingUp"
     },
     {
-      label: "Reviews Added",
+      label: "New Google Reviews",
       thisWeek: 3,
       lastWeek: 1,
       change: 200,
       icon: "Star"
     },
     {
-      label: "Revenue Protected",
+      label: "Money Protected This Week",
       thisWeek: 34800,
       lastWeek: 28400,
       change: 22.5,
@@ -184,29 +184,29 @@ export const mockData = {
   actionItems: [
     {
       id: "alert-1",
-      title: "3 leads haven't been followed up in 48 hours",
-      description: "Quick calls could close these",
+      title: "3 customers are waiting for your call",
+      description: "They called yesterday - quick callbacks could turn them into jobs",
       severity: "critical",
-      action: "Call Now"
+      action: "Call Them Now"
     },
     {
       id: "alert-2",
-      title: "Response time increased 15% this week",
-      description: "Try to answer phones within first 2 rings",
+      title: "You're answering slower this week",
+      description: "Try to pick up phones within 2 rings - it's costing you jobs",
       severity: "warning",
       action: "Review"
     },
     {
       id: "alert-3",
-      title: "5 customers ready for review requests",
-      description: "Follow-up from jobs completed last week",
+      title: "5 recent customers should be asked for reviews",
+      description: "Send them a Google review request - takes 1 minute per customer",
       severity: "info",
-      action: "Send Requests"
+      action: "Send Now"
     },
     {
       id: "alert-4",
-      title: "After-hours calls up 23% - consider call forwarding",
-      description: "Unattended evening calls are costing revenue",
+      title: "Evening calls are up 23% - but you're not picking up",
+      description: "Set up call forwarding after 6 PM so you don't miss jobs",
       severity: "warning",
       action: "Setup"
     }

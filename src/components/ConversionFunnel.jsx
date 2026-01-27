@@ -13,7 +13,7 @@ import { BarChart, Bar } from 'recharts';
 import { formatPercent } from '../utils/calculations';
 import './ConversionFunnel.css';
 
-const ConversionFunnel = ({ funnelData }) => {
+const ConversionFunnel = ({ funnelData = [] }) => {
   const FUNNEL_COLORS = ['#1e3a8a', '#2563eb', '#3b82f6', '#10b981'];
 
   // Calculate conversion rates between stages
@@ -26,7 +26,7 @@ const ConversionFunnel = ({ funnelData }) => {
   return (
     <div className="conversion-funnel-section">
       <Container fluid>
-        <h3 className="section-subtitle">Booking Conversion Funnel</h3>
+        <h3 className="section-subtitle">How Jobs Get Booked</h3>
 
         <div className="funnel-container">
           <Card className="funnel-card">
@@ -83,19 +83,19 @@ const ConversionFunnel = ({ funnelData }) => {
 
         <Card className="funnel-insights-card">
           <Card.Body>
-            <h6 className="chart-title">Conversion Analysis</h6>
+<h6 className="chart-title">Your Booking Performance</h6>
             <ul className="analysis-list">
               <li>
-                <strong>Inquiry to Qualified:</strong> 83.1% - You're qualifying leads well
+                <strong>Calls to Real Leads:</strong> 83.1% - Great job filtering out spam
               </li>
               <li>
-                <strong>Qualified to Quote:</strong> 79.7% - Good proposal conversion, keep it up
+                <strong>Leads to Quotes:</strong> 79.7% - Good follow-up rate
               </li>
               <li>
-                <strong>Quote to Booking:</strong> 80.9% - Excellent close rate on proposals
+                <strong>Quotes to Booked Jobs:</strong> 80.9% - Excellent! Customers trust you
               </li>
               <li>
-                <strong>Overall Funnel:</strong> 53.5% from initial inquiry to booked job
+                <strong>Overall:</strong> 53.5% of calls become actual jobs booked
               </li>
             </ul>
 
