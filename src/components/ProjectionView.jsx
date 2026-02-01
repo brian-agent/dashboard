@@ -15,6 +15,7 @@ const ProjectionView = ({ clientData = {} }) => {
     reviews: clientData.reviews?.current || 38,
     responseTime: clientData.responseTime?.phoneCalls?.average || 11,
     totalLeak: clientData.totalRevenueLeak || 99600,
+    hasWebsite: clientData.hasWebsite !== false, // default true unless explicitly false
   };
 
   // Calculate projections if client takes recommended actions
@@ -38,13 +39,13 @@ const ProjectionView = ({ clientData = {} }) => {
       conversionLift: 0.24, // 24% lead growth from better ranking
       revenue: Math.round(current.calls * 0.24 * 1200 * 0.535)
     },
-    // If they improve website conversion
-    betterWebsite: {
+    // If they improve website conversion (only if they have a website)
+    betterWebsite: current.hasWebsite ? {
       current: 0.08,
       improved: 0.12,
       uplift: 0.04,
       revenue: Math.round(current.calls * 0.22 * (0.12 - 0.08) * 1200)
-    },
+    } : null,
     // Combined impact if all actions taken
     combined: {
       captureRateImproved: Math.min(95, current.captureRate + 8),
@@ -55,12 +56,12 @@ const ProjectionView = ({ clientData = {} }) => {
     }
   };
 
-  // Calculate combined revenue impact
+  // Calculate combined revenue impact - only include website if they have one
   projections.combined.monthlyRevenueLift = 
     projections.improvedAnswerRate.revenue +
     projections.fasterResponse.revenue +
     projections.moreReviews.revenue +
-    projections.betterWebsite.revenue;
+    (projections.betterWebsite?.revenue || 0);
 
   const currentMonthlyRevenue = current.calls * 0.535 * 1200; // estimate
 
@@ -167,7 +168,8 @@ const ProjectionView = ({ clientData = {} }) => {
                     </Card>
                   </Col>
 
-                  {/* Better Website */}
+                  {/* Better Website - Only show if they have a website */}
+                  {current.hasWebsite && (
                   <Col lg={6} className="mb-4">
                     <Card className="action-projection">
                       <Card.Body>
@@ -191,6 +193,7 @@ const ProjectionView = ({ clientData = {} }) => {
                       </Card.Body>
                     </Card>
                   </Col>
+                  )}
                 </Row>
 
                 {/* Combined Impact Summary */}

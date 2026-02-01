@@ -1,0 +1,232 @@
+.sales-closer {
+  background: linear-gradient(135deg, #f5f7fa 0%, #fff 100%);
+  padding: 40px 0;
+  min-height: 100vh;
+}
+
+.revenue-impact-card {
+  border: none;
+  border-radius: 16px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+  background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+  color: white;
+  padding: 40px 20px;
+  animation: slideInDown 0.5s ease-out;
+}
+
+.revenue-impact-card .impact-subtitle {
+  font-size: 16px;
+  font-weight: 500;
+  opacity: 0.95;
+  margin-bottom: 10px;
+}
+
+.impact-amount {
+  font-size: 48px;
+  font-weight: 700;
+  margin: 15px 0;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.impact-subtext {
+  font-size: 16px;
+  opacity: 0.9;
+  margin-bottom: 5px;
+}
+
+.impact-annual {
+  font-size: 14px;
+  opacity: 0.85;
+  margin: 0;
+}
+
+.section-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 3px solid #10b981;
+  display: inline-block;
+}
+
+.leak-card {
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  transition: all 0.3s ease;
+  height: 100%;
+}
+
+.leak-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+.leak-rank {
+  display: inline-block;
+  background: #f3f4f6;
+  color: #ef4444;
+  font-weight: 700;
+  font-size: 12px;
+  padding: 4px 12px;
+  border-radius: 20px;
+  margin-bottom: 12px;
+}
+
+.leak-name {
+  color: #1f2937;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.leak-amount {
+  font-size: 24px;
+  font-weight: 700;
+  color: #ef4444;
+  margin-bottom: 8px;
+}
+
+.opportunity-card {
+  border: none;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  color: white;
+  box-shadow: 0 10px 40px rgba(16, 185, 129, 0.15);
+  padding: 30px;
+}
+
+.opportunity-icon {
+  margin-right: 15px;
+  min-width: 40px;
+  width: 40px;
+  height: 40px;
+  color: white;
+}
+
+.opportunity-card h4 {
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+.recovery-breakdown {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.recovery-stat {
+  background: rgba(255, 255, 255, 0.15);
+  padding: 15px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.recovery-label {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  opacity: 0.9;
+  margin-bottom: 8px;
+}
+
+.recovery-value {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.action-card {
+  border: none;
+  border-left: 4px solid #10b981;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  transition: all 0.3s ease;
+}
+
+.action-card:hover {
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+  transform: translateX(4px);
+}
+
+.action-card h5 {
+  color: #1f2937;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.action-amount {
+  text-align: right;
+  min-width: 140px;
+}
+
+.amount-label {
+  font-size: 12px;
+  color: #9ca3af;
+  text-transform: uppercase;
+}
+
+.amount-value {
+  font-size: 18px;
+  font-weight: 700;
+  color: #10b981;
+}
+
+.close-deal-btn {
+  background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%);
+  border: none;
+  color: white;
+  font-weight: 600;
+  font-size: 16px;
+  padding: 16px 32px;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+.close-deal-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 24px rgba(30, 58, 138, 0.25);
+  color: white;
+}
+
+.proposal-content {
+  line-height: 1.8;
+}
+
+.proposal-cta {
+  background: #f0f9ff;
+  padding: 20px;
+  border-radius: 10px;
+  border-left: 4px solid #0284c7;
+}
+
+@keyframes slideInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .impact-amount {
+    font-size: 36px;
+  }
+
+  .recovery-breakdown {
+    grid-template-columns: 1fr;
+  }
+
+  .action-card .d-flex {
+    flex-direction: column;
+    align-items: flex-start !important;
+  }
+
+  .action-amount {
+    text-align: left;
+    margin-top: 12px;
+  }
+}

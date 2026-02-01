@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import { Container, Row, Col, Button, Dropdown } from 'react-bootstrap';
-import { Download, RotateCcw } from 'lucide-react';
+import { Download, RotateCcw, Zap, FileDown, Eye, EyeOff } from 'lucide-react';
 import mockData from '../data/mockData';
+import { exportToPDF } from '../utils/pdfExport';
 import Header from './Header';
 import ClientDataForm from './ClientDataForm';
 import DemoModeToggle from './DemoModeToggle';
+import SalesCloser from './SalesCloser';
 import LeakAnalysis from './LeakAnalysis';
 import PerformanceChart from './PerformanceChart';
 import LeadSourceChart from './LeadSourceChart';
@@ -24,6 +26,9 @@ import './Dashboard.css';
 
 const Dashboard = () => {
   const [dateRange, setDateRange] = useState('30');
+  const [viewMode, setViewMode] = useState('full'); // 'full' or 'sales'
+  const [isExporting, setIsExporting] = useState(false);
+  const [showForm, setShowForm] = useState(true); // Toggle form visibility
   // clientData holds real client data when loaded; falls back to mockData
   const [clientData, setClientData] = useState(() => {
     try {
@@ -42,6 +47,21 @@ const Dashboard = () => {
   const handleExport = () => {
     // Simulate export
     alert('Exporting dashboard data to CSV...');
+  };
+
+  const handleExportDashboardPDF = async () => {
+    setIsExporting(true);
+    try {
+      const element = document.getElementById('dashboard-content');
+      const filename = `${clientData.businessName}_Dashboard_${new Date().toLocaleDateString()}`;
+      const title = `Revenue Protection Dashboard\n${clientData.businessName}`;
+      await exportToPDF(element, filename, title);
+    } catch (error) {
+      console.error('Export error:', error);
+      alert('Error exporting PDF');
+    } finally {
+      setIsExporting(false);
+    }
   };
 
   const handleLoadClientData = (data) => {
@@ -63,9 +83,20 @@ const Dashboard = () => {
         stats={clientData.headerStats}
       />
 
-      <Container fluid className="dashboard-content">
+      {/* Sales Closer View */}
+      {viewMode === 'sales' && (
+        <SalesCloser 
+          clientData={clientData}
+          onClose={() => setViewMode('full')}
+        />
+      )}
+
+      {/* Full Dashboard View */}
+      {viewMode === 'full' && (
+        <Container fluid className="dashboard-content">
+        <div id="dashboard-content">
         {/* Client Data Loader */}
-        <ClientDataForm onLoad={handleLoadClientData} />
+        {showForm && <ClientDataForm onLoad={handleLoadClientData} />}
 
         {/* Demo Mode Toggle */}
         <div className="demo-mode-section">
@@ -95,9 +126,36 @@ const Dashboard = () => {
                 </Dropdown.Item>
               </Dropdown.Menu>
             </Dropdown>
+            <Button 
+              variant="warning" 
+              className="ms-2 control-btn"
+              onClick={() => setViewMode('sales')}
+            >
+              <Zap size={18} />
+              Sales Mode
+            </Button>
           </div>
 
           <div className="controls-right">
+            <Button 
+              variant="light" 
+              className="control-btn" 
+              onClick={() => setShowForm(!showForm)}
+              title={showForm ? 'Hide form' : 'Show form'}
+            >
+              {showForm ? <Eye size={18} /> : <EyeOff size={18} />}
+              {showForm ? 'Hide Form' : 'Show Form'}
+            </Button>
+            <Button 
+              variant="light" 
+              className="control-btn" 
+              onClick={handleExportDashboardPDF}
+              disabled={isExporting}
+              title="Export dashboard as PDF"
+            >
+              <FileDown size={18} />
+              {isExporting ? 'Exporting...' : 'Export PDF'}
+            </Button>
             <Button variant="light" className="control-btn" onClick={handleRefresh}>
               <RotateCcw size={18} />
               Refresh
@@ -162,7 +220,9 @@ const Dashboard = () => {
             Revenue Protection Dashboard © 2024 | Data updates every 15 minutes | For support, contact support@example.com
           </p>
         </div>
+        </div>
       </Container>
+      )}
     </div>
   );
 };

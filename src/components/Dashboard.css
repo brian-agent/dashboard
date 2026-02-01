@@ -19,17 +19,21 @@
   margin-bottom: 2rem;
   gap: 1rem;
   flex-wrap: wrap;
+  background: white;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
 }
 
 .controls-left,
 .controls-right {
   display: flex;
-  gap: 1rem;
+  gap: 0.75rem;
   align-items: center;
+  flex-wrap: wrap;
 }
 
-.date-range-btn,
-.control-btn {
+.date-range-btn {
   border: 1px solid #d1d5db !important;
   background: white !important;
   color: #374151 !important;
@@ -42,11 +46,36 @@
   transition: all 0.2s ease;
 }
 
-.date-range-btn:hover,
+.date-range-btn:hover {
+  border-color: #1e3a8a !important;
+  background: #eff6ff !important;
+  color: #1e3a8a !important;
+}
+
+.control-btn {
+  font-weight: 500;
+  border-radius: 6px;
+  padding: 0.5rem 0.75rem;
+  display: flex !important;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.2s ease;
+  border: 1px solid #d1d5db !important;
+  background: white !important;
+  color: #374151 !important;
+  white-space: nowrap;
+  min-width: auto;
+}
+
 .control-btn:hover {
   border-color: #1e3a8a !important;
   background: #eff6ff !important;
   color: #1e3a8a !important;
+}
+
+.control-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
 }
 
 .control-btn svg {

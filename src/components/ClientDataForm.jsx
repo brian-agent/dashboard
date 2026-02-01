@@ -256,7 +256,8 @@ const ClientDataForm = ({ onLoad }) => {
             price: 199
           }
         ]
-      }
+      },
+      hasWebsite: smart.hasWebsite
     };
   };
 
